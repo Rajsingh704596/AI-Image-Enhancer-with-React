@@ -1,4 +1,18 @@
-const ImageUpload = () => {
+import { ChangeEvent } from "react";
+
+interface ImageUploadProps {
+  UploadImageHandler: (file: File) => void;
+}
+
+const ImageUpload = ({ UploadImageHandler }: ImageUploadProps) => {
+  const handleUploadImage = (e: ChangeEvent<HTMLInputElement>) => {
+    // console.log(e.target.files);
+    const file = e.target.files?.[0]; // Optional Chaining (safer file access)
+
+    if (file) {
+      UploadImageHandler(file); // fun call where file pass
+    }
+  };
   return (
     <div className="bg-slate-100 p-6 md:w-[600px] text-center">
       <label
@@ -8,7 +22,13 @@ const ImageUpload = () => {
         <span className="text-lg font-medium text-gray-400">
           Click and Drag to upload your image
         </span>
-        <input type="file" id="fileInput" className="hidden" />
+        <input
+          type="file"
+          id="fileInput"
+          className="hidden"
+          onChange={handleUploadImage}
+          accept="image/*" // Optional: restrict to image files only
+        />
       </label>
     </div>
   );
