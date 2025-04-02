@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Loading from "./Loading";
 
 interface PropType {
   loading: boolean;
@@ -26,7 +27,7 @@ const ImagePreview: FC<PropType> = ({ loading, uploaded, enhanced }) => {
               className="w-full h-full object-cover"
             />
           ) : (
-            <div className="flex items-center justify-center h-60 bg-gray-200">
+            <div className="flex items-center justify-center h-60 bg-gray-200 text-slate-500">
               No Image Selected
             </div>
           )}
@@ -38,14 +39,19 @@ const ImagePreview: FC<PropType> = ({ loading, uploaded, enhanced }) => {
             {" "}
             Enhanced Image
           </h2>
-          {enhanced ? (
+          {/* if enhanced image get then show */}
+          {enhanced && !loading && (
             <img
               src={enhanced}
               alt="Enhanced image"
               className="w-full h-full object-cover"
             />
+          )}
+          {/* loading true then Loading component show */}
+          {loading ? (
+            <Loading />
           ) : (
-            <div className="flex items-center justify-center h-60 bg-gray-200">
+            <div className="flex items-center justify-center h-60 bg-gray-200 text-slate-500">
               No Enhanced Image
             </div>
           )}
