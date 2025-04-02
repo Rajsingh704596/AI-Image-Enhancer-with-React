@@ -1,4 +1,3 @@
-`````markdown
 # AI Image Enhancer
 
 A web application that uses AI to enhance and upscale your images. Upload any image and get a higher quality version processed through advanced AI algorithms.
@@ -54,7 +53,6 @@ const enhancedData = await enhancedImageAPI(imageFile);
 // Returns: { state: number, image?: string }
 ```
 ````
-`````
 
 ## 🔧 Internal Methods
 
@@ -117,7 +115,9 @@ try {
 
 > **Note:** Requires `VITE_API_KEY` in environment variables
 
-````
+```
+
+```
 
 ## Project Structure
 
@@ -134,4 +134,7 @@ try {
 ├── App.tsx                    # Main application component
 └── main.tsx                   # Application entry point
 ```
-````
+
+```
+
+```
